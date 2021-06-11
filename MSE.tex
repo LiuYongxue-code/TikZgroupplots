@@ -1,0 +1,2155 @@
+\documentclass[border=5mm]
+{standalone}
+\usepackage{amsmath,times}
+\usepackage{xcolor}
+\usepackage{pgfplots}
+\usepgfplotslibrary{groupplots}
+\usepackage{tikz}
+\begin{document}
+
+\definecolor{Orange}{RGB}{255,93,32}
+\definecolor{Blue}{RGB}{79,128,230}
+\definecolor{green1}{RGB}{73,209,80}
+\definecolor{green2}{RGB}{70,241,151}
+\definecolor{green3}{RGB}{34,112,17}
+\definecolor{coffe}{RGB}{156,90,27}
+\definecolor{Violet}{RGB}{90,28,151}
+\definecolor{Magenta}{RGB}{244,56,163}
+\definecolor{Red}{RGB}{251,44,4}
+
+\begin{tikzpicture}
+\pgfplotsset{
+width=10cm,
+height=9cm,
+every axis legend/.append style={
+    at={(1.7,-0.3)},
+    fill=white,
+    draw=white,
+    legend columns=5,
+    font=\Large,
+    opacity=1,
+    anchor=east},
+     every axis title/.append style={
+ at={(0.46,0.8)},
+    fill=white,
+    font=\footnotesize,
+    opacity=0.6,
+    anchor=south east,
+    align=left
+    },
+    every axis y label/.append style={at={(0.00,0.5)}}
+    }
+\begin{groupplot}[group style={group size=3 by 2,
+horizontal sep=50pt,
+vertical sep=50pt,},
+%/tikz/font=\footnotesize,
+]
+ % Data_e
+ % ***********************************************
+\nextgroupplot[
+tick align=outside,
+tick pos=left,
+every axis title/.append style={
+ at={(0.65,0.98)},
+    fill=white,
+    font=\normalsize,
+    opacity=1,
+    anchor=south east,
+    align=left
+    },
+title={Cartpole Swing Up},
+x grid style={white!69.019608!black},
+xlabel={Finger Spin},
+xlabel style={black,font=\normalsize\sffamily,yshift=-1mm,align=center},
+ymin=0, ymax=100,
+xmin=0, xmax=51,
+ytick distance=20,
+xtick distance=10,
+xtick style={color=black},
+y grid style={white!69.019608!black},
+ylabel={Mean Squared Error},
+%xmajorgrids,
+%ymajorgrids,
+ytick style={color=black}
+]
+\path [fill=Blue!95!white, fill opacity=0.2, very thin]
+(axis cs:0,2)
+--(axis cs:0,6)
+--(axis cs:2,9)
+--(axis cs:4,12)
+--(axis cs:6,16)
+--(axis cs:8,18)
+--(axis cs:10,19)
+--(axis cs:13,23)
+--(axis cs:16,32)
+--(axis cs:18,40)
+--(axis cs:20,45)
+--(axis cs:22,48)
+--(axis cs:24,60)
+--(axis cs:25,63)
+--(axis cs:29,64)
+--(axis cs:35,68)
+--(axis cs:38,65)
+--(axis cs:43,67)
+--(axis cs:48,65)
+--(axis cs:51,62)
+--(axis cs:47,55)
+--(axis cs:44,50)
+--(axis cs:41,60)
+--(axis cs:43,67)
+--(axis cs:48,65)
+--(axis cs:51,62)
+--(axis cs:51,56)
+--(axis cs:47,55)
+--(axis cs:45,53)
+--(axis cs:41,51)
+--(axis cs:38,49)
+--(axis cs:36,46)
+--(axis cs:35,44)
+--(axis cs:32,40)
+--(axis cs:26,38)
+--(axis cs:22,35)
+--(axis cs:17,25)
+--(axis cs:14,15)
+--(axis cs:10,11)
+--(axis cs:5,7)
+--(axis cs:3,6)
+--(axis cs:0,2)
+--cycle;
+
+\path [draw=black, dashed,line width=1.5pt,]
+(axis cs:0,85)--(axis cs:51,85);
+
+\path [draw=Blue,dashed,line width=1.5pt,]
+(axis cs:0,60)--(axis cs:51,60);
+
+%\path [draw=Blue,dashed,line width=1.5pt,] (axis cs:0,0)rectangle (axis cs:20,20);
+
+\addplot [semithick,line width=1.5pt, Blue!70!black]
+table {%
+0 5
+3 8
+5 9
+7 11
+10 15
+14 20
+16 30
+18 35
+19 40
+21 38
+23 50
+25 56
+27 55
+32 58
+33 58.35
+35 57
+36 59.2
+40 58.5
+42 56.5
+45 58.6
+47 59.5
+48 59
+49 59.5
+50 59
+51 59.5
+};
+%\addlegendentry{SVR}
+% 2
+% ********************************************
+
+\path [fill=magenta!80!white, fill opacity=0.5, very thin]
+(axis cs:0,10)
+--(axis cs:2,19)
+--(axis cs:4,21)
+--(axis cs:6,27)
+--(axis cs:8,28)
+--(axis cs:10,31)
+--(axis cs:12,32)
+--(axis cs:14,38)
+--(axis cs:16,40)
+--(axis cs:18,45)
+--(axis cs:20,48)
+--(axis cs:22,52)
+--(axis cs:24,53)
+--(axis cs:26,57)
+--(axis cs:28,60)
+--(axis cs:30,68)
+--(axis cs:32,72)
+--(axis cs:34,74)
+--(axis cs:36,76)
+--(axis cs:38,80)
+--(axis cs:40,80)
+--(axis cs:42,83)
+--(axis cs:44,86)
+--(axis cs:46,89)
+--(axis cs:48,90)
+--(axis cs:50,90.5)
+--(axis cs:52,90)
+--(axis cs:52,80)
+--(axis cs:50,80)
+--(axis cs:48,79)
+--(axis cs:46,78)
+--(axis cs:44,78)
+--(axis cs:42,77)
+--(axis cs:40,72)
+--(axis cs:38,72)
+--(axis cs:36,70)
+--(axis cs:34,66)
+--(axis cs:32,64)
+--(axis cs:30,62)
+--(axis cs:28,54)
+--(axis cs:26,53)
+--(axis cs:24,51)
+--(axis cs:22,46)
+--(axis cs:20,44)
+--(axis cs:18,43)
+--(axis cs:16,36)
+--(axis cs:14,32)
+--(axis cs:12,28)
+--(axis cs:10,24)
+--(axis cs:8,23)
+--(axis cs:6,21)
+--(axis cs:4,19)
+--(axis cs:2,13)
+--(axis cs:0,6)
+--cycle;
+
+\addplot [semithick,line width=1.5pt, Red!70!black]
+table {
+0	8
+2	16
+4	20
+6	24
+8	26
+10	27
+12	30
+14	35
+16	38
+18	44
+20	46
+22	49
+24	52
+26	55
+28	57
+30	65
+32	68
+34	70
+36	74
+38	75
+40	76
+42	80
+44	82
+46	84
+48	85
+50	84.5
+51	85
+};
+
+% 3
+% ********************************************
+
+\path [fill=green3!95!white, fill opacity=0.2, very thin]
+(axis cs:0,14)
+--(axis cs:2,23)
+--(axis cs:4,35)
+--(axis cs:6,46)
+--(axis cs:8,53)
+--(axis cs:10,55)
+--(axis cs:12,62)
+--(axis cs:14,70)
+--(axis cs:16,78)
+--(axis cs:18,85)
+--(axis cs:20,88)
+--(axis cs:22,89)
+--(axis cs:24,91)
+--(axis cs:26,90)
+--(axis cs:28,89)
+--(axis cs:30,89)
+--(axis cs:32,90)
+--(axis cs:34,91)
+--(axis cs:36,92)
+--(axis cs:38,93)
+--(axis cs:40,92)
+--(axis cs:42,91)
+--(axis cs:44,90)
+--(axis cs:46,92)
+--(axis cs:48,92)
+--(axis cs:50,93)
+--(axis cs:52,91)
+--(axis cs:52,80)
+--(axis cs:50,80)
+--(axis cs:48,79)
+--(axis cs:46,78)
+--(axis cs:44,78)
+--(axis cs:42,77)
+--(axis cs:40,72)
+--(axis cs:38,72)
+--(axis cs:36,70)
+--(axis cs:34,66)
+--(axis cs:32,64)
+--(axis cs:30,62)
+--(axis cs:28,54)
+--(axis cs:26,53)
+--(axis cs:24,51)
+--(axis cs:22,46)
+--(axis cs:20,44)
+--(axis cs:18,43)
+--(axis cs:16,36)
+--(axis cs:14,32)
+--(axis cs:12,28)
+--(axis cs:10,24)
+--(axis cs:8,23)
+--(axis cs:6,21)
+--(axis cs:4,19)
+--(axis cs:2,13)
+--(axis cs:0,6)
+--cycle;
+
+\addplot [semithick,line width=1.5pt, green3!70!black]
+table {
+0	7
+2	25
+4	28
+6	40
+8	46
+10	50
+12	58
+14	64
+16	70
+18	80
+20	82
+22	84
+24	85
+26	84
+28	84
+30	85
+32	85
+34	85
+36	85
+38	85
+40	85
+42	85
+44	85
+46	85
+48	85
+50	85
+52	85
+};
+
+% Graph2
+\nextgroupplot[
+tick align=outside,
+tick pos=left,
+every axis title/.append style={
+ at={(0.65,0.98)},
+    fill=white,
+    font=\normalsize,
+    opacity=1,
+    anchor=south east,
+    align=left
+    },
+title={Cartpole Swing Up},
+x grid style={white!69.019608!black},
+xlabel={Finger Spin},
+xlabel style={black,font=\normalsize\sffamily,yshift=-1mm,align=center},
+ymin=0, ymax=100,
+xmin=0, xmax=51,
+ytick distance=20,
+xtick distance=10,
+xtick style={color=black},
+y grid style={white!69.019608!black},
+ylabel={Mean Squared Error},
+%xmajorgrids,
+%ymajorgrids,
+ytick style={color=black}
+]
+\path [fill=Blue!95!white, fill opacity=0.2, very thin]
+(axis cs:0,14)
+--(axis cs:0,33)
+--(axis cs:2,52)
+--(axis cs:4,67)
+--(axis cs:6,77)
+--(axis cs:8,80)
+--(axis cs:10,92)
+--(axis cs:13,101)
+--(axis cs:16,111)
+--(axis cs:18,113)
+--(axis cs:20,122)
+--(axis cs:22,123)
+--(axis cs:24,124)
+--(axis cs:25,125)
+--(axis cs:29,164)
+--(axis cs:35,152)
+--(axis cs:38,114)
+--(axis cs:43,116)
+--(axis cs:48,119)
+--(axis cs:51,122)
+--(axis cs:47,112)
+--(axis cs:44,113)
+--(axis cs:41,106)
+--(axis cs:43,67)
+--(axis cs:48,65)
+--(axis cs:51,62)
+--(axis cs:51,56)
+--(axis cs:47,55)
+--(axis cs:45,53)
+--(axis cs:41,51)
+--(axis cs:38,49)
+--(axis cs:36,46)
+--(axis cs:35,44)
+--(axis cs:32,40)
+--(axis cs:26,38)
+--(axis cs:22,35)
+--(axis cs:17,25)
+--(axis cs:14,15)
+--(axis cs:10,11)
+--(axis cs:5,7)
+--(axis cs:3,6)
+--(axis cs:0,2)
+--cycle;
+
+\path [draw=coffe, dashed,line width=1.5pt,]
+(axis cs:0,97)--(axis cs:51,97);
+
+\path [draw=Blue,dashed,line width=1.5pt,]
+(axis cs:0,60)--(axis cs:51,60);
+
+%\path [draw=Blue,dashed,line width=1.5pt,] (axis cs:0,0)rectangle (axis cs:20,20);
+
+\addplot [semithick,line width=1.5pt, Blue!70!black]
+table {%
+0	10
+2	28
+4	45
+6	61
+8	70
+10	75
+12	88
+14	94
+16	95
+18	97
+20	95
+22	96
+24	97
+26	96
+28	97
+30	97
+32	97
+34	97
+36	97
+38	97
+40	97
+42	97
+44	97
+46	97
+48	97
+50	97
+52	97
+};
+%\addlegendentry{SVR}
+% 2
+% ********************************************
+
+\path [fill=magenta!80!white, fill opacity=0.5, very thin]
+(axis cs:0,10)
+--(axis cs:2,19)
+--(axis cs:4,21)
+--(axis cs:6,27)
+--(axis cs:8,28)
+--(axis cs:10,31)
+--(axis cs:12,32)
+--(axis cs:14,38)
+--(axis cs:16,40)
+--(axis cs:18,45)
+--(axis cs:20,48)
+--(axis cs:22,52)
+--(axis cs:24,53)
+--(axis cs:26,57)
+--(axis cs:28,60)
+--(axis cs:30,68)
+--(axis cs:32,72)
+--(axis cs:34,74)
+--(axis cs:36,76)
+--(axis cs:38,80)
+--(axis cs:40,80)
+--(axis cs:42,83)
+--(axis cs:44,86)
+--(axis cs:46,89)
+--(axis cs:48,90)
+--(axis cs:50,90.5)
+--(axis cs:52,90)
+--(axis cs:52,80)
+--(axis cs:50,80)
+--(axis cs:48,79)
+--(axis cs:46,78)
+--(axis cs:44,78)
+--(axis cs:42,77)
+--(axis cs:40,72)
+--(axis cs:38,72)
+--(axis cs:36,70)
+--(axis cs:34,66)
+--(axis cs:32,64)
+--(axis cs:30,62)
+--(axis cs:28,54)
+--(axis cs:26,53)
+--(axis cs:24,51)
+--(axis cs:22,46)
+--(axis cs:20,44)
+--(axis cs:18,43)
+--(axis cs:16,36)
+--(axis cs:14,32)
+--(axis cs:12,28)
+--(axis cs:10,24)
+--(axis cs:8,23)
+--(axis cs:6,21)
+--(axis cs:4,19)
+--(axis cs:2,13)
+--(axis cs:0,6)
+--cycle;
+
+\addplot [semithick,line width=1.5pt, Red!70!black]
+table {
+0	8
+2	16
+4	20
+6	24
+8	26
+10	27
+12	30
+14	35
+16	38
+18	44
+20	46
+22	49
+24	52
+26	55
+28	57
+30	65
+32	68
+34	70
+36	74
+38	75
+40	76
+42	80
+44	82
+46	84
+48	85
+50	84.5
+51	85
+};
+
+% 3
+% ********************************************
+
+\path [fill=green3!95!white, fill opacity=0.2, very thin]
+(axis cs:0,14)
+--(axis cs:2,23)
+--(axis cs:4,35)
+--(axis cs:6,46)
+--(axis cs:8,53)
+--(axis cs:10,55)
+--(axis cs:12,62)
+--(axis cs:14,70)
+--(axis cs:16,78)
+--(axis cs:18,85)
+--(axis cs:20,88)
+--(axis cs:22,89)
+--(axis cs:24,91)
+--(axis cs:26,90)
+--(axis cs:28,89)
+--(axis cs:30,89)
+--(axis cs:32,90)
+--(axis cs:34,91)
+--(axis cs:36,92)
+--(axis cs:38,93)
+--(axis cs:40,92)
+--(axis cs:42,91)
+--(axis cs:44,90)
+--(axis cs:46,92)
+--(axis cs:48,92)
+--(axis cs:50,93)
+--(axis cs:52,91)
+--(axis cs:52,80)
+--(axis cs:50,80)
+--(axis cs:48,79)
+--(axis cs:46,78)
+--(axis cs:44,78)
+--(axis cs:42,77)
+--(axis cs:40,72)
+--(axis cs:38,72)
+--(axis cs:36,70)
+--(axis cs:34,66)
+--(axis cs:32,64)
+--(axis cs:30,62)
+--(axis cs:28,54)
+--(axis cs:26,53)
+--(axis cs:24,51)
+--(axis cs:22,46)
+--(axis cs:20,44)
+--(axis cs:18,43)
+--(axis cs:16,36)
+--(axis cs:14,32)
+--(axis cs:12,28)
+--(axis cs:10,24)
+--(axis cs:8,23)
+--(axis cs:6,21)
+--(axis cs:4,19)
+--(axis cs:2,13)
+--(axis cs:0,6)
+--cycle;
+
+\addplot [semithick,line width=1.5pt, green3!70!black]
+table {
+0	7
+2	25
+4	28
+6	40
+8	46
+10	50
+12	58
+14	64
+16	70
+18	80
+20	82
+22	84
+24	85
+26	84
+28	84
+30	85
+32	85
+34	85
+36	85
+38	85
+40	85
+42	85
+44	85
+46	85
+48	85
+50	85
+52	85
+};
+
+% Graph 3
+\nextgroupplot[
+tick align=outside,
+tick pos=left,
+every axis title/.append style={
+ at={(0.65,0.98)},
+    fill=white,
+    font=\normalsize,
+    opacity=1,
+    anchor=south east,
+    align=left
+    },
+title={Cartpole Swing Up},
+x grid style={white!69.019608!black},
+xlabel={Finger Spin},
+xlabel style={black,font=\normalsize\sffamily,yshift=-1mm,align=center},
+ymin=0, ymax=100,
+xmin=0, xmax=51,
+ytick distance=20,
+xtick distance=10,
+xtick style={color=black},
+y grid style={white!69.019608!black},
+ylabel={Mean Squared Error},
+%xmajorgrids,
+%ymajorgrids,
+ytick style={color=black}
+]
+\path [fill=Blue!95!white, fill opacity=0.2, very thin]
+(axis cs:0,2)
+--(axis cs:0,6)
+--(axis cs:2,9)
+--(axis cs:4,12)
+--(axis cs:6,16)
+--(axis cs:8,18)
+--(axis cs:10,19)
+--(axis cs:13,23)
+--(axis cs:16,32)
+--(axis cs:18,40)
+--(axis cs:20,45)
+--(axis cs:22,48)
+--(axis cs:24,60)
+--(axis cs:25,63)
+--(axis cs:29,64)
+--(axis cs:35,68)
+--(axis cs:38,65)
+--(axis cs:43,67)
+--(axis cs:48,65)
+--(axis cs:51,62)
+--(axis cs:47,55)
+--(axis cs:44,50)
+--(axis cs:41,60)
+--(axis cs:43,67)
+--(axis cs:48,65)
+--(axis cs:51,62)
+--(axis cs:51,56)
+--(axis cs:47,55)
+--(axis cs:45,53)
+--(axis cs:41,51)
+--(axis cs:38,49)
+--(axis cs:36,46)
+--(axis cs:35,44)
+--(axis cs:32,40)
+--(axis cs:26,38)
+--(axis cs:22,35)
+--(axis cs:17,25)
+--(axis cs:14,15)
+--(axis cs:10,11)
+--(axis cs:5,7)
+--(axis cs:3,6)
+--(axis cs:0,2)
+--cycle;
+
+\path [draw=black, dashed,line width=1.5pt,]
+(axis cs:0,85)--(axis cs:51,85);
+
+\path [draw=Blue,dashed,line width=1.5pt,]
+(axis cs:0,60)--(axis cs:51,60);
+
+%\path [draw=Blue,dashed,line width=1.5pt,] (axis cs:0,0)rectangle (axis cs:20,20);
+
+\addplot [semithick,line width=1.5pt, Blue!70!black]
+table {%
+0 5
+3 8
+5 9
+7 11
+10 15
+14 20
+16 30
+18 35
+19 40
+21 38
+23 50
+25 56
+27 55
+32 58
+33 58.35
+35 57
+36 59.2
+40 58.5
+42 56.5
+45 58.6
+47 59.5
+48 59
+49 59.5
+50 59
+51 59.5
+};
+%\addlegendentry{SVR}
+% 2
+% ********************************************
+
+\path [fill=magenta!80!white, fill opacity=0.5, very thin]
+(axis cs:0,10)
+--(axis cs:2,19)
+--(axis cs:4,21)
+--(axis cs:6,27)
+--(axis cs:8,28)
+--(axis cs:10,31)
+--(axis cs:12,32)
+--(axis cs:14,38)
+--(axis cs:16,40)
+--(axis cs:18,45)
+--(axis cs:20,48)
+--(axis cs:22,52)
+--(axis cs:24,53)
+--(axis cs:26,57)
+--(axis cs:28,60)
+--(axis cs:30,68)
+--(axis cs:32,72)
+--(axis cs:34,74)
+--(axis cs:36,76)
+--(axis cs:38,80)
+--(axis cs:40,80)
+--(axis cs:42,83)
+--(axis cs:44,86)
+--(axis cs:46,89)
+--(axis cs:48,90)
+--(axis cs:50,90.5)
+--(axis cs:52,90)
+--(axis cs:52,80)
+--(axis cs:50,80)
+--(axis cs:48,79)
+--(axis cs:46,78)
+--(axis cs:44,78)
+--(axis cs:42,77)
+--(axis cs:40,72)
+--(axis cs:38,72)
+--(axis cs:36,70)
+--(axis cs:34,66)
+--(axis cs:32,64)
+--(axis cs:30,62)
+--(axis cs:28,54)
+--(axis cs:26,53)
+--(axis cs:24,51)
+--(axis cs:22,46)
+--(axis cs:20,44)
+--(axis cs:18,43)
+--(axis cs:16,36)
+--(axis cs:14,32)
+--(axis cs:12,28)
+--(axis cs:10,24)
+--(axis cs:8,23)
+--(axis cs:6,21)
+--(axis cs:4,19)
+--(axis cs:2,13)
+--(axis cs:0,6)
+--cycle;
+
+\addplot [semithick,line width=1.5pt, Red!70!black]
+table {
+0	8
+2	16
+4	20
+6	24
+8	26
+10	27
+12	30
+14	35
+16	38
+18	44
+20	46
+22	49
+24	52
+26	55
+28	57
+30	65
+32	68
+34	70
+36	74
+38	75
+40	76
+42	80
+44	82
+46	84
+48	85
+50	84.5
+51	85
+};
+
+% 3
+% ********************************************
+
+\path [fill=green3!95!white, fill opacity=0.2, very thin]
+(axis cs:0,14)
+--(axis cs:2,23)
+--(axis cs:4,35)
+--(axis cs:6,46)
+--(axis cs:8,53)
+--(axis cs:10,55)
+--(axis cs:12,62)
+--(axis cs:14,70)
+--(axis cs:16,78)
+--(axis cs:18,85)
+--(axis cs:20,88)
+--(axis cs:22,89)
+--(axis cs:24,91)
+--(axis cs:26,90)
+--(axis cs:28,89)
+--(axis cs:30,89)
+--(axis cs:32,90)
+--(axis cs:34,91)
+--(axis cs:36,92)
+--(axis cs:38,93)
+--(axis cs:40,92)
+--(axis cs:42,91)
+--(axis cs:44,90)
+--(axis cs:46,92)
+--(axis cs:48,92)
+--(axis cs:50,93)
+--(axis cs:52,91)
+--(axis cs:52,80)
+--(axis cs:50,80)
+--(axis cs:48,79)
+--(axis cs:46,78)
+--(axis cs:44,78)
+--(axis cs:42,77)
+--(axis cs:40,72)
+--(axis cs:38,72)
+--(axis cs:36,70)
+--(axis cs:34,66)
+--(axis cs:32,64)
+--(axis cs:30,62)
+--(axis cs:28,54)
+--(axis cs:26,53)
+--(axis cs:24,51)
+--(axis cs:22,46)
+--(axis cs:20,44)
+--(axis cs:18,43)
+--(axis cs:16,36)
+--(axis cs:14,32)
+--(axis cs:12,28)
+--(axis cs:10,24)
+--(axis cs:8,23)
+--(axis cs:6,21)
+--(axis cs:4,19)
+--(axis cs:2,13)
+--(axis cs:0,6)
+--cycle;
+
+\addplot [semithick,line width=1.5pt, green3!70!black]
+table {
+0	7
+2	25
+4	28
+6	40
+8	46
+10	50
+12	58
+14	64
+16	70
+18	80
+20	82
+22	84
+24	85
+26	84
+28	84
+30	85
+32	85
+34	85
+36	85
+38	85
+40	85
+42	85
+44	85
+46	85
+48	85
+50	85
+52	85
+};
+
+% Graph 4
+\nextgroupplot[
+tick align=outside,
+tick pos=left,
+every axis title/.append style={
+ at={(0.65,0.98)},
+    fill=white,
+    font=\normalsize,
+    opacity=1,
+    anchor=south east,
+    align=left
+    },
+title={Cartpole Swing Up},
+x grid style={white!69.019608!black},
+xlabel={Finger Spin},
+xlabel style={black,font=\normalsize\sffamily,yshift=-1mm,align=center},
+ymin=0, ymax=100,
+xmin=0, xmax=51,
+ytick distance=20,
+xtick distance=10,
+xtick style={color=black},
+y grid style={white!69.019608!black},
+ylabel={Mean Squared Error},
+%xmajorgrids,
+%ymajorgrids,
+ytick style={color=black}
+]
+\path [fill=Blue!95!white, fill opacity=0.2, very thin]
+(axis cs:0,2)
+--(axis cs:0,6)
+--(axis cs:2,9)
+--(axis cs:4,12)
+--(axis cs:6,16)
+--(axis cs:8,18)
+--(axis cs:10,19)
+--(axis cs:13,23)
+--(axis cs:16,32)
+--(axis cs:18,40)
+--(axis cs:20,45)
+--(axis cs:22,48)
+--(axis cs:24,60)
+--(axis cs:25,63)
+--(axis cs:29,64)
+--(axis cs:35,68)
+--(axis cs:38,65)
+--(axis cs:43,67)
+--(axis cs:48,65)
+--(axis cs:51,62)
+--(axis cs:47,55)
+--(axis cs:44,50)
+--(axis cs:41,60)
+--(axis cs:43,67)
+--(axis cs:48,65)
+--(axis cs:51,62)
+--(axis cs:51,56)
+--(axis cs:47,55)
+--(axis cs:45,53)
+--(axis cs:41,51)
+--(axis cs:38,49)
+--(axis cs:36,46)
+--(axis cs:35,44)
+--(axis cs:32,40)
+--(axis cs:26,38)
+--(axis cs:22,35)
+--(axis cs:17,25)
+--(axis cs:14,15)
+--(axis cs:10,11)
+--(axis cs:5,7)
+--(axis cs:3,6)
+--(axis cs:0,2)
+--cycle;
+
+\path [draw=black, dashed,line width=1.5pt,]
+(axis cs:0,85)--(axis cs:51,85);
+
+\path [draw=Blue,dashed,line width=1.5pt,]
+(axis cs:0,60)--(axis cs:51,60);
+
+%\path [draw=Blue,dashed,line width=1.5pt,] (axis cs:0,0)rectangle (axis cs:20,20);
+
+\addplot [semithick,line width=1.5pt, Blue!70!black]
+table {%
+0 5
+3 8
+5 9
+7 11
+10 15
+14 20
+16 30
+18 35
+19 40
+21 38
+23 50
+25 56
+27 55
+32 58
+33 58.35
+35 57
+36 59.2
+40 58.5
+42 56.5
+45 58.6
+47 59.5
+48 59
+49 59.5
+50 59
+51 59.5
+};
+%\addlegendentry{SVR}
+% 2
+% ********************************************
+
+\path [fill=magenta!80!white, fill opacity=0.5, very thin]
+(axis cs:0,10)
+--(axis cs:2,19)
+--(axis cs:4,21)
+--(axis cs:6,27)
+--(axis cs:8,28)
+--(axis cs:10,31)
+--(axis cs:12,32)
+--(axis cs:14,38)
+--(axis cs:16,40)
+--(axis cs:18,45)
+--(axis cs:20,48)
+--(axis cs:22,52)
+--(axis cs:24,53)
+--(axis cs:26,57)
+--(axis cs:28,60)
+--(axis cs:30,68)
+--(axis cs:32,72)
+--(axis cs:34,74)
+--(axis cs:36,76)
+--(axis cs:38,80)
+--(axis cs:40,80)
+--(axis cs:42,83)
+--(axis cs:44,86)
+--(axis cs:46,89)
+--(axis cs:48,90)
+--(axis cs:50,90.5)
+--(axis cs:52,90)
+--(axis cs:52,80)
+--(axis cs:50,80)
+--(axis cs:48,79)
+--(axis cs:46,78)
+--(axis cs:44,78)
+--(axis cs:42,77)
+--(axis cs:40,72)
+--(axis cs:38,72)
+--(axis cs:36,70)
+--(axis cs:34,66)
+--(axis cs:32,64)
+--(axis cs:30,62)
+--(axis cs:28,54)
+--(axis cs:26,53)
+--(axis cs:24,51)
+--(axis cs:22,46)
+--(axis cs:20,44)
+--(axis cs:18,43)
+--(axis cs:16,36)
+--(axis cs:14,32)
+--(axis cs:12,28)
+--(axis cs:10,24)
+--(axis cs:8,23)
+--(axis cs:6,21)
+--(axis cs:4,19)
+--(axis cs:2,13)
+--(axis cs:0,6)
+--cycle;
+
+\addplot [semithick,line width=1.5pt, Red!70!black]
+table {
+0	8
+2	16
+4	20
+6	24
+8	26
+10	27
+12	30
+14	35
+16	38
+18	44
+20	46
+22	49
+24	52
+26	55
+28	57
+30	65
+32	68
+34	70
+36	74
+38	75
+40	76
+42	80
+44	82
+46	84
+48	85
+50	84.5
+51	85
+};
+
+% 3
+% ********************************************
+
+\path [fill=green3!95!white, fill opacity=0.2, very thin]
+(axis cs:0,14)
+--(axis cs:2,23)
+--(axis cs:4,35)
+--(axis cs:6,46)
+--(axis cs:8,53)
+--(axis cs:10,55)
+--(axis cs:12,62)
+--(axis cs:14,70)
+--(axis cs:16,78)
+--(axis cs:18,85)
+--(axis cs:20,88)
+--(axis cs:22,89)
+--(axis cs:24,91)
+--(axis cs:26,90)
+--(axis cs:28,89)
+--(axis cs:30,89)
+--(axis cs:32,90)
+--(axis cs:34,91)
+--(axis cs:36,92)
+--(axis cs:38,93)
+--(axis cs:40,92)
+--(axis cs:42,91)
+--(axis cs:44,90)
+--(axis cs:46,92)
+--(axis cs:48,92)
+--(axis cs:50,93)
+--(axis cs:52,91)
+--(axis cs:52,80)
+--(axis cs:50,80)
+--(axis cs:48,79)
+--(axis cs:46,78)
+--(axis cs:44,78)
+--(axis cs:42,77)
+--(axis cs:40,72)
+--(axis cs:38,72)
+--(axis cs:36,70)
+--(axis cs:34,66)
+--(axis cs:32,64)
+--(axis cs:30,62)
+--(axis cs:28,54)
+--(axis cs:26,53)
+--(axis cs:24,51)
+--(axis cs:22,46)
+--(axis cs:20,44)
+--(axis cs:18,43)
+--(axis cs:16,36)
+--(axis cs:14,32)
+--(axis cs:12,28)
+--(axis cs:10,24)
+--(axis cs:8,23)
+--(axis cs:6,21)
+--(axis cs:4,19)
+--(axis cs:2,13)
+--(axis cs:0,6)
+--cycle;
+
+\addplot [semithick,line width=1.5pt, green3!70!black]
+table {
+0	7
+2	25
+4	28
+6	40
+8	46
+10	50
+12	58
+14	64
+16	70
+18	80
+20	82
+22	84
+24	85
+26	84
+28	84
+30	85
+32	85
+34	85
+36	85
+38	85
+40	85
+42	85
+44	85
+46	85
+48	85
+50	85
+52	85
+};
+
+% Graph 5
+\nextgroupplot[
+tick align=outside,
+tick pos=left,
+every axis title/.append style={
+ at={(0.65,0.98)},
+    fill=white,
+    font=\normalsize,
+    opacity=1,
+    anchor=south east,
+    align=left
+    },
+title={Cartpole Swing Up},
+x grid style={white!69.019608!black},
+xlabel={Finger Spin},
+xlabel style={black,font=\normalsize\sffamily,yshift=-1mm,align=center},
+ymin=0, ymax=100,
+xmin=0, xmax=51,
+ytick distance=20,
+xtick distance=10,
+xtick style={color=black},
+y grid style={white!69.019608!black},
+ylabel={Mean Squared Error},
+%xmajorgrids,
+%ymajorgrids,
+ytick style={color=black}
+]
+\path [fill=Blue!95!white, fill opacity=0.2, very thin]
+(axis cs:0,2)
+--(axis cs:0,6)
+--(axis cs:2,9)
+--(axis cs:4,12)
+--(axis cs:6,16)
+--(axis cs:8,18)
+--(axis cs:10,19)
+--(axis cs:13,23)
+--(axis cs:16,32)
+--(axis cs:18,40)
+--(axis cs:20,45)
+--(axis cs:22,48)
+--(axis cs:24,60)
+--(axis cs:25,63)
+--(axis cs:29,64)
+--(axis cs:35,68)
+--(axis cs:38,65)
+--(axis cs:43,67)
+--(axis cs:48,65)
+--(axis cs:51,62)
+--(axis cs:47,55)
+--(axis cs:44,50)
+--(axis cs:41,60)
+--(axis cs:43,67)
+--(axis cs:48,65)
+--(axis cs:51,62)
+--(axis cs:51,56)
+--(axis cs:47,55)
+--(axis cs:45,53)
+--(axis cs:41,51)
+--(axis cs:38,49)
+--(axis cs:36,46)
+--(axis cs:35,44)
+--(axis cs:32,40)
+--(axis cs:26,38)
+--(axis cs:22,35)
+--(axis cs:17,25)
+--(axis cs:14,15)
+--(axis cs:10,11)
+--(axis cs:5,7)
+--(axis cs:3,6)
+--(axis cs:0,2)
+--cycle;
+
+\path [draw=black, dashed,line width=1.5pt,]
+(axis cs:0,85)--(axis cs:51,85);
+
+\path [draw=Blue,dashed,line width=1.5pt,]
+(axis cs:0,60)--(axis cs:51,60);
+
+%\path [draw=Blue,dashed,line width=1.5pt,] (axis cs:0,0)rectangle (axis cs:20,20);
+
+\addplot [semithick,line width=1.5pt, Blue!70!black]
+table {%
+0 5
+3 8
+5 9
+7 11
+10 15
+14 20
+16 30
+18 35
+19 40
+21 38
+23 50
+25 56
+27 55
+32 58
+33 58.35
+35 57
+36 59.2
+40 58.5
+42 56.5
+45 58.6
+47 59.5
+48 59
+49 59.5
+50 59
+51 59.5
+};
+\addlegendentry{PlaNet}
+% 2
+% ********************************************
+
+\path [fill=magenta!80!white, fill opacity=0.5, very thin]
+(axis cs:0,10)
+--(axis cs:2,19)
+--(axis cs:4,21)
+--(axis cs:6,27)
+--(axis cs:8,28)
+--(axis cs:10,31)
+--(axis cs:12,32)
+--(axis cs:14,38)
+--(axis cs:16,40)
+--(axis cs:18,45)
+--(axis cs:20,48)
+--(axis cs:22,52)
+--(axis cs:24,53)
+--(axis cs:26,57)
+--(axis cs:28,60)
+--(axis cs:30,68)
+--(axis cs:32,72)
+--(axis cs:34,74)
+--(axis cs:36,76)
+--(axis cs:38,80)
+--(axis cs:40,80)
+--(axis cs:42,83)
+--(axis cs:44,86)
+--(axis cs:46,89)
+--(axis cs:48,90)
+--(axis cs:50,90.5)
+--(axis cs:52,90)
+--(axis cs:52,80)
+--(axis cs:50,80)
+--(axis cs:48,79)
+--(axis cs:46,78)
+--(axis cs:44,78)
+--(axis cs:42,77)
+--(axis cs:40,72)
+--(axis cs:38,72)
+--(axis cs:36,70)
+--(axis cs:34,66)
+--(axis cs:32,64)
+--(axis cs:30,62)
+--(axis cs:28,54)
+--(axis cs:26,53)
+--(axis cs:24,51)
+--(axis cs:22,46)
+--(axis cs:20,44)
+--(axis cs:18,43)
+--(axis cs:16,36)
+--(axis cs:14,32)
+--(axis cs:12,28)
+--(axis cs:10,24)
+--(axis cs:8,23)
+--(axis cs:6,21)
+--(axis cs:4,19)
+--(axis cs:2,13)
+--(axis cs:0,6)
+--cycle;
+
+\addplot [semithick,line width=1.5pt, Red!70!black]
+table {
+0	8
+2	16
+4	20
+6	24
+8	26
+10	27
+12	30
+14	35
+16	38
+18	44
+20	46
+22	49
+24	52
+26	55
+28	57
+30	65
+32	68
+34	70
+36	74
+38	75
+40	76
+42	80
+44	82
+46	84
+48	85
+50	84.5
+51	85
+};
+\addlegendentry{Random shooting}
+% 3
+% ********************************************
+
+\path [fill=green3!95!white, fill opacity=0.2, very thin]
+(axis cs:0,14)
+--(axis cs:2,23)
+--(axis cs:4,35)
+--(axis cs:6,46)
+--(axis cs:8,53)
+--(axis cs:10,55)
+--(axis cs:12,62)
+--(axis cs:14,70)
+--(axis cs:16,78)
+--(axis cs:18,85)
+--(axis cs:20,88)
+--(axis cs:22,89)
+--(axis cs:24,91)
+--(axis cs:26,90)
+--(axis cs:28,89)
+--(axis cs:30,89)
+--(axis cs:32,90)
+--(axis cs:34,91)
+--(axis cs:36,92)
+--(axis cs:38,93)
+--(axis cs:40,92)
+--(axis cs:42,91)
+--(axis cs:44,90)
+--(axis cs:46,92)
+--(axis cs:48,92)
+--(axis cs:50,93)
+--(axis cs:52,91)
+--(axis cs:52,80)
+--(axis cs:50,80)
+--(axis cs:48,79)
+--(axis cs:46,78)
+--(axis cs:44,78)
+--(axis cs:42,77)
+--(axis cs:40,72)
+--(axis cs:38,72)
+--(axis cs:36,70)
+--(axis cs:34,66)
+--(axis cs:32,64)
+--(axis cs:30,62)
+--(axis cs:28,54)
+--(axis cs:26,53)
+--(axis cs:24,51)
+--(axis cs:22,46)
+--(axis cs:20,44)
+--(axis cs:18,43)
+--(axis cs:16,36)
+--(axis cs:14,32)
+--(axis cs:12,28)
+--(axis cs:10,24)
+--(axis cs:8,23)
+--(axis cs:6,21)
+--(axis cs:4,19)
+--(axis cs:2,13)
+--(axis cs:0,6)
+--cycle;
+
+\addplot [semithick,line width=1.5pt, green3!70!black]
+table {
+0	7
+2	25
+4	28
+6	40
+8	46
+10	50
+12	58
+14	64
+16	70
+18	80
+20	82
+22	84
+24	85
+26	84
+28	84
+30	85
+32	85
+34	85
+36	85
+38	85
+40	85
+42	85
+44	85
+46	85
+48	85
+50	85
+52	85
+};
+\addlegendentry{Random collection}
+
+\addplot [semithick,line width=1.5pt, black]
+table {
+0	60
+2	60
+4	60
+6	60
+8	60
+10	60
+12	60
+14	60
+16	60
+18	60
+20	60
+22	60
+24	60
+26	60
+28	60
+30	60
+32	60
+34	60
+36	60
+38	60
+40	60
+42	60
+44	60
+46	60
+48	60
+50	60
+52	60
+};
+\addlegendentry{Random collection}
+
+
+\addplot [semithick,line width=1.5pt, Blue!70!black]
+table {
+0	85
+2	85
+4	85
+6	85
+8	85
+10	85
+12	85
+14	85
+16	85
+18	85
+20	85
+22	85
+24	85
+26	85
+28	85
+30	85
+32	85
+34	85
+36	85
+38	85
+40	85
+42	85
+44	85
+46	85
+48	85
+50	85
+52	85
+};
+\addlegendentry{D4PG (100K episode)}
+
+
+% Graph 6
+\nextgroupplot[
+tick align=outside,
+tick pos=left,
+every axis title/.append style={
+ at={(0.65,0.98)},
+    fill=white,
+    font=\normalsize,
+    opacity=1,
+    anchor=south east,
+    align=left
+    },
+title={Cartpole Swing Up},
+x grid style={white!69.019608!black},
+xlabel={Finger Spin},
+xlabel style={black,font=\normalsize\sffamily,yshift=-1mm,align=center},
+ymin=0, ymax=100,
+xmin=0, xmax=51,
+ytick distance=20,
+xtick distance=10,
+xtick style={color=black},
+y grid style={white!69.019608!black},
+ylabel={Mean Squared Error},
+%xmajorgrids,
+%ymajorgrids,
+ytick style={color=black}
+]
+\path [fill=Blue!95!white, fill opacity=0.2, very thin]
+(axis cs:0,2)
+--(axis cs:0,6)
+--(axis cs:2,9)
+--(axis cs:4,12)
+--(axis cs:6,16)
+--(axis cs:8,18)
+--(axis cs:10,19)
+--(axis cs:13,23)
+--(axis cs:16,32)
+--(axis cs:18,40)
+--(axis cs:20,45)
+--(axis cs:22,48)
+--(axis cs:24,60)
+--(axis cs:25,63)
+--(axis cs:29,64)
+--(axis cs:35,68)
+--(axis cs:38,65)
+--(axis cs:43,67)
+--(axis cs:48,65)
+--(axis cs:51,62)
+--(axis cs:47,55)
+--(axis cs:44,50)
+--(axis cs:41,60)
+--(axis cs:43,67)
+--(axis cs:48,65)
+--(axis cs:51,62)
+--(axis cs:51,56)
+--(axis cs:47,55)
+--(axis cs:45,53)
+--(axis cs:41,51)
+--(axis cs:38,49)
+--(axis cs:36,46)
+--(axis cs:35,44)
+--(axis cs:32,40)
+--(axis cs:26,38)
+--(axis cs:22,35)
+--(axis cs:17,25)
+--(axis cs:14,15)
+--(axis cs:10,11)
+--(axis cs:5,7)
+--(axis cs:3,6)
+--(axis cs:0,2)
+--cycle;
+
+\path [draw=black, dashed,line width=1.5pt,]
+(axis cs:0,85)--(axis cs:51,85);
+
+\path [draw=Blue,dashed,line width=1.5pt,]
+(axis cs:0,60)--(axis cs:51,60);
+
+%\path [draw=Blue,dashed,line width=1.5pt,] (axis cs:0,0)rectangle (axis cs:20,20);
+
+\addplot [semithick,line width=1.5pt, Blue!70!black]
+table {%
+0 5
+3 8
+5 9
+7 11
+10 15
+14 20
+16 30
+18 35
+19 40
+21 38
+23 50
+25 56
+27 55
+32 58
+33 58.35
+35 57
+36 59.2
+40 58.5
+42 56.5
+45 58.6
+47 59.5
+48 59
+49 59.5
+50 59
+51 59.5
+};
+%\addlegendentry{SVR}
+% 2
+% ********************************************
+
+\path [fill=magenta!80!white, fill opacity=0.5, very thin]
+(axis cs:0,10)
+--(axis cs:2,19)
+--(axis cs:4,21)
+--(axis cs:6,27)
+--(axis cs:8,28)
+--(axis cs:10,31)
+--(axis cs:12,32)
+--(axis cs:14,38)
+--(axis cs:16,40)
+--(axis cs:18,45)
+--(axis cs:20,48)
+--(axis cs:22,52)
+--(axis cs:24,53)
+--(axis cs:26,57)
+--(axis cs:28,60)
+--(axis cs:30,68)
+--(axis cs:32,72)
+--(axis cs:34,74)
+--(axis cs:36,76)
+--(axis cs:38,80)
+--(axis cs:40,80)
+--(axis cs:42,83)
+--(axis cs:44,86)
+--(axis cs:46,89)
+--(axis cs:48,90)
+--(axis cs:50,90.5)
+--(axis cs:52,90)
+--(axis cs:52,80)
+--(axis cs:50,80)
+--(axis cs:48,79)
+--(axis cs:46,78)
+--(axis cs:44,78)
+--(axis cs:42,77)
+--(axis cs:40,72)
+--(axis cs:38,72)
+--(axis cs:36,70)
+--(axis cs:34,66)
+--(axis cs:32,64)
+--(axis cs:30,62)
+--(axis cs:28,54)
+--(axis cs:26,53)
+--(axis cs:24,51)
+--(axis cs:22,46)
+--(axis cs:20,44)
+--(axis cs:18,43)
+--(axis cs:16,36)
+--(axis cs:14,32)
+--(axis cs:12,28)
+--(axis cs:10,24)
+--(axis cs:8,23)
+--(axis cs:6,21)
+--(axis cs:4,19)
+--(axis cs:2,13)
+--(axis cs:0,6)
+--cycle;
+
+\addplot [semithick,line width=1.5pt, Red!70!black]
+table {
+0	8
+2	16
+4	20
+6	24
+8	26
+10	27
+12	30
+14	35
+16	38
+18	44
+20	46
+22	49
+24	52
+26	55
+28	57
+30	65
+32	68
+34	70
+36	74
+38	75
+40	76
+42	80
+44	82
+46	84
+48	85
+50	84.5
+51	85
+};
+
+% 3
+% ********************************************
+
+\path [fill=green3!95!white, fill opacity=0.2, very thin]
+(axis cs:0,14)
+--(axis cs:2,23)
+--(axis cs:4,35)
+--(axis cs:6,46)
+--(axis cs:8,53)
+--(axis cs:10,55)
+--(axis cs:12,62)
+--(axis cs:14,70)
+--(axis cs:16,78)
+--(axis cs:18,85)
+--(axis cs:20,88)
+--(axis cs:22,89)
+--(axis cs:24,91)
+--(axis cs:26,90)
+--(axis cs:28,89)
+--(axis cs:30,89)
+--(axis cs:32,90)
+--(axis cs:34,91)
+--(axis cs:36,92)
+--(axis cs:38,93)
+--(axis cs:40,92)
+--(axis cs:42,91)
+--(axis cs:44,90)
+--(axis cs:46,92)
+--(axis cs:48,92)
+--(axis cs:50,93)
+--(axis cs:52,91)
+--(axis cs:52,80)
+--(axis cs:50,80)
+--(axis cs:48,79)
+--(axis cs:46,78)
+--(axis cs:44,78)
+--(axis cs:42,77)
+--(axis cs:40,72)
+--(axis cs:38,72)
+--(axis cs:36,70)
+--(axis cs:34,66)
+--(axis cs:32,64)
+--(axis cs:30,62)
+--(axis cs:28,54)
+--(axis cs:26,53)
+--(axis cs:24,51)
+--(axis cs:22,46)
+--(axis cs:20,44)
+--(axis cs:18,43)
+--(axis cs:16,36)
+--(axis cs:14,32)
+--(axis cs:12,28)
+--(axis cs:10,24)
+--(axis cs:8,23)
+--(axis cs:6,21)
+--(axis cs:4,19)
+--(axis cs:2,13)
+--(axis cs:0,6)
+--cycle;
+
+\addplot [semithick,line width=1.5pt, green3!70!black]
+table {
+0	7
+2	25
+4	28
+6	40
+8	46
+10	50
+12	58
+14	64
+16	70
+18	80
+20	82
+22	84
+24	85
+26	84
+28	84
+30	85
+32	85
+34	85
+36	85
+38	85
+40	85
+42	85
+44	85
+46	85
+48	85
+50	85
+52	85
+};
+\nextgroupplot[
+tick align=outside,
+tick pos=left,
+every axis title/.append style={
+ at={(0.65,0.98)},
+    fill=white,
+    font=\normalsize,
+    opacity=1,
+    anchor=south east,
+    align=left
+    },
+title={Cartpole Swing Up},
+x grid style={white!69.019608!black},
+xlabel={Finger Spin},
+xlabel style={black,font=\normalsize\sffamily,yshift=-1mm,align=center},
+ymin=0, ymax=100,
+xmin=0, xmax=51,
+ytick distance=20,
+xtick distance=10,
+xtick style={color=black},
+y grid style={white!69.019608!black},
+ylabel={Mean Squared Error},
+%xmajorgrids,
+%ymajorgrids,
+ytick style={color=black}
+]
+\path [fill=Blue!95!white, fill opacity=0.2, very thin]
+(axis cs:0,2)
+--(axis cs:0,6)
+--(axis cs:2,9)
+--(axis cs:4,12)
+--(axis cs:6,16)
+--(axis cs:8,18)
+--(axis cs:10,19)
+--(axis cs:13,23)
+--(axis cs:16,32)
+--(axis cs:18,40)
+--(axis cs:20,45)
+--(axis cs:22,48)
+--(axis cs:24,60)
+--(axis cs:25,63)
+--(axis cs:29,64)
+--(axis cs:35,68)
+--(axis cs:38,65)
+--(axis cs:43,67)
+--(axis cs:48,65)
+--(axis cs:51,62)
+--(axis cs:47,55)
+--(axis cs:44,50)
+--(axis cs:41,60)
+--(axis cs:43,67)
+--(axis cs:48,65)
+--(axis cs:51,62)
+--(axis cs:51,56)
+--(axis cs:47,55)
+--(axis cs:45,53)
+--(axis cs:41,51)
+--(axis cs:38,49)
+--(axis cs:36,46)
+--(axis cs:35,44)
+--(axis cs:32,40)
+--(axis cs:26,38)
+--(axis cs:22,35)
+--(axis cs:17,25)
+--(axis cs:14,15)
+--(axis cs:10,11)
+--(axis cs:5,7)
+--(axis cs:3,6)
+--(axis cs:0,2)
+--cycle;
+
+\path [draw=black, dashed,line width=1.5pt,]
+(axis cs:0,85)--(axis cs:51,85);
+
+\path [draw=Blue,dashed,line width=1.5pt,]
+(axis cs:0,60)--(axis cs:51,60);
+
+%\path [draw=Blue,dashed,line width=1.5pt,] (axis cs:0,0)rectangle (axis cs:20,20);
+
+\addplot [semithick,line width=1.5pt, Blue!70!black]
+table {%
+0 5
+3 8
+5 9
+7 11
+10 15
+14 20
+16 30
+18 35
+19 40
+21 38
+23 50
+25 56
+27 55
+32 58
+33 58.35
+35 57
+36 59.2
+40 58.5
+42 56.5
+45 58.6
+47 59.5
+48 59
+49 59.5
+50 59
+51 59.5
+};
+%\addlegendentry{SVR}
+% 2
+% ********************************************
+
+\path [fill=magenta!80!white, fill opacity=0.5, very thin]
+(axis cs:0,10)
+--(axis cs:2,19)
+--(axis cs:4,21)
+--(axis cs:6,27)
+--(axis cs:8,28)
+--(axis cs:10,31)
+--(axis cs:12,32)
+--(axis cs:14,38)
+--(axis cs:16,40)
+--(axis cs:18,45)
+--(axis cs:20,48)
+--(axis cs:22,52)
+--(axis cs:24,53)
+--(axis cs:26,57)
+--(axis cs:28,60)
+--(axis cs:30,68)
+--(axis cs:32,72)
+--(axis cs:34,74)
+--(axis cs:36,76)
+--(axis cs:38,80)
+--(axis cs:40,80)
+--(axis cs:42,83)
+--(axis cs:44,86)
+--(axis cs:46,89)
+--(axis cs:48,90)
+--(axis cs:50,90.5)
+--(axis cs:52,90)
+--(axis cs:52,80)
+--(axis cs:50,80)
+--(axis cs:48,79)
+--(axis cs:46,78)
+--(axis cs:44,78)
+--(axis cs:42,77)
+--(axis cs:40,72)
+--(axis cs:38,72)
+--(axis cs:36,70)
+--(axis cs:34,66)
+--(axis cs:32,64)
+--(axis cs:30,62)
+--(axis cs:28,54)
+--(axis cs:26,53)
+--(axis cs:24,51)
+--(axis cs:22,46)
+--(axis cs:20,44)
+--(axis cs:18,43)
+--(axis cs:16,36)
+--(axis cs:14,32)
+--(axis cs:12,28)
+--(axis cs:10,24)
+--(axis cs:8,23)
+--(axis cs:6,21)
+--(axis cs:4,19)
+--(axis cs:2,13)
+--(axis cs:0,6)
+--cycle;
+
+\addplot [semithick,line width=1.5pt, Red!70!black]
+table {
+0	8
+2	16
+4	20
+6	24
+8	26
+10	27
+12	30
+14	35
+16	38
+18	44
+20	46
+22	49
+24	52
+26	55
+28	57
+30	65
+32	68
+34	70
+36	74
+38	75
+40	76
+42	80
+44	82
+46	84
+48	85
+50	84.5
+51	85
+};
+
+% 3
+% ********************************************
+
+\path [fill=green3!95!white, fill opacity=0.2, very thin]
+(axis cs:0,14)
+--(axis cs:2,23)
+--(axis cs:4,35)
+--(axis cs:6,46)
+--(axis cs:8,53)
+--(axis cs:10,55)
+--(axis cs:12,62)
+--(axis cs:14,70)
+--(axis cs:16,78)
+--(axis cs:18,85)
+--(axis cs:20,88)
+--(axis cs:22,89)
+--(axis cs:24,91)
+--(axis cs:26,90)
+--(axis cs:28,89)
+--(axis cs:30,89)
+--(axis cs:32,90)
+--(axis cs:34,91)
+--(axis cs:36,92)
+--(axis cs:38,93)
+--(axis cs:40,92)
+--(axis cs:42,91)
+--(axis cs:44,90)
+--(axis cs:46,92)
+--(axis cs:48,92)
+--(axis cs:50,93)
+--(axis cs:52,91)
+--(axis cs:52,80)
+--(axis cs:50,80)
+--(axis cs:48,79)
+--(axis cs:46,78)
+--(axis cs:44,78)
+--(axis cs:42,77)
+--(axis cs:40,72)
+--(axis cs:38,72)
+--(axis cs:36,70)
+--(axis cs:34,66)
+--(axis cs:32,64)
+--(axis cs:30,62)
+--(axis cs:28,54)
+--(axis cs:26,53)
+--(axis cs:24,51)
+--(axis cs:22,46)
+--(axis cs:20,44)
+--(axis cs:18,43)
+--(axis cs:16,36)
+--(axis cs:14,32)
+--(axis cs:12,28)
+--(axis cs:10,24)
+--(axis cs:8,23)
+--(axis cs:6,21)
+--(axis cs:4,19)
+--(axis cs:2,13)
+--(axis cs:0,6)
+--cycle;
+
+\addplot [semithick,line width=1.5pt, green3!70!black]
+table {
+0	7
+2	25
+4	28
+6	40
+8	46
+10	50
+12	58
+14	64
+16	70
+18	80
+20	82
+22	84
+24	85
+26	84
+28	84
+30	85
+32	85
+34	85
+36	85
+38	85
+40	85
+42	85
+44	85
+46	85
+48	85
+50	85
+52	85
+};
+
+\end{groupplot}
+\end{tikzpicture}
+
+\end{document}
